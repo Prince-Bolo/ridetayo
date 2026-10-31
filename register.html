@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideTayo - Register</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-box">
+    <h1>🚲 RideTayo</h1>
+    <p class="sub">Create your rider account</p>
+
+    <form id="registerForm">
+      <label>Full Name</label>
+      <input type="text" id="fullName" required>
+
+      <label>Email</label>
+      <input type="email" id="email" required>
+
+      <label>Password (at least 6 characters)</label>
+      <input type="password" id="password" minlength="6" required>
+
+      <label>Confirm Password</label>
+      <input type="password" id="password2" minlength="6" required>
+
+      <button type="submit" id="registerBtn">Register</button>
+    </form>
+
+    <p id="msg" class="msg"></p>
+    <p>Already have an account? <a href="index.html">Login here</a></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

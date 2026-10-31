@@ -1,0 +1,439 @@
+/* RideTayo styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f2f5f1;
+  color: #222;
+}
+
+a {
+  color: #2e7d32;
+}
+
+/* ---------- top menu ---------- */
+#nav {
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#nav .brand {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#nav .links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#nav .links a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav .links a:hover {
+  text-decoration: underline;
+}
+
+#nav .hello {
+  color: #c8e6c9;
+}
+
+/* ---------- page layout ---------- */
+.container {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+.box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+.muted {
+  color: #777;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.row > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ---------- forms ---------- */
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+}
+
+.inline-label {
+  display: inline;
+  font-weight: normal;
+  margin-right: 15px;
+}
+
+/* ---------- buttons ---------- */
+button, .btn {
+  background: #ef6c00;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn:hover {
+  background: #d65f00;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.btn-green {
+  background: #2e7d32;
+}
+
+.btn-green:hover {
+  background: #1b5e20;
+}
+
+.btn-red {
+  background: #c62828;
+}
+
+.btn-red:hover {
+  background: #8e0000;
+}
+
+.btn-gray {
+  background: #757575;
+}
+
+.msg {
+  color: #c62828;
+  min-height: 20px;
+}
+
+/* ---------- login / register ---------- */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.auth-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.auth-box h1 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.auth-box .sub {
+  text-align: center;
+  color: #777;
+  margin-top: 0;
+}
+
+.auth-box button {
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* ---------- ride cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img, .poster-empty {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.poster-empty {
+  background: #c8e6c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.card-body {
+  padding: 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h3 {
+  margin-bottom: 6px;
+}
+
+.card-body p {
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+.card-body .btn {
+  margin-top: auto;
+  text-align: center;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #e0e0e0;
+}
+
+.tag-Easy {
+  background: #c8e6c9;
+  color: #1b5e20;
+}
+
+.tag-Moderate {
+  background: #ffe0b2;
+  color: #e65100;
+}
+
+.tag-Hard {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+
+/* ---------- ride details ---------- */
+#map {
+  height: 380px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.big-poster {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.info-grid div {
+  background: #f2f5f1;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.info-grid b {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  font-weight: normal;
+}
+
+.note {
+  background: #fff8e1;
+  border-left: 4px solid #ffb300;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.rider-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rider-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- admin ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  background: white;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat .num {
+  font-size: 30px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.stat .label {
+  color: #777;
+  font-size: 14px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f2f5f1;
+}
+
+td .btn, td button {
+  margin: 2px;
+}
+
+.bar {
+  background: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 100px;
+}
+
+.bar div {
+  background: #2e7d32;
+  height: 8px;
+  border-radius: 4px;
+}
+
+/* ---------- ride form map ---------- */
+.map-tools {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+}
+
+.search-row input {
+  flex: 1;
+}
+
+#posterPreview {
+  max-width: 250px;
+  margin-top: 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #map {
+    height: 300px;
+  }
+}
