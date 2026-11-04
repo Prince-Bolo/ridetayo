@@ -41,6 +41,7 @@ function showNav(profile) {
   let links = '<a href="rides.html">Rides</a>';
   if (profile.role === "admin") {
     links += '<a href="admin.html">Dashboard</a>';
+    links += '<a href="ride-form.html">+ New Ride</a>';
   }
 
   nav.innerHTML =

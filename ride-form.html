@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideTayo - Ride Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav id="nav"></nav>
+
+  <div class="container">
+    <div class="box">
+      <h2 id="formTitle">New Ride</h2>
+
+      <form id="rideForm">
+        <label>Ride Name</label>
+        <input type="text" id="title" placeholder="ex. Sunday Morning Loop" required>
+
+        <label>Description</label>
+        <textarea id="description" placeholder="What riders should know, what to bring, pace, etc."></textarea>
+
+        <div class="row">
+          <div>
+            <label>Date</label>
+            <input type="date" id="rideDate" required>
+          </div>
+          <div>
+            <label>Start Time</label>
+            <input type="time" id="startTime" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Difficulty</label>
+            <select id="difficulty">
+              <option value="Easy">Easy</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+          <div>
+            <label>Max Riders</label>
+            <input type="number" id="maxRiders" min="1" value="30" required>
+          </div>
+        </div>
+
+        <label>Meeting Place</label>
+        <input type="text" id="meetingPlace" placeholder="ex. Iligan City Hall">
+
+        <br>
+        <button type="submit" id="saveBtn">Save Ride</button>
+        <a href="admin.html" class="btn btn-gray">Cancel</a>
+        <p id="msg" class="msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/ride-form.js"></script>
+</body>
+</html>

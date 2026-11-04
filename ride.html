@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideTayo - Ride Details</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav id="nav"></nav>
+
+  <div class="container">
+
+    <div class="box" id="rideBox">
+      <h1 id="title">Loading...</h1>
+      <span id="level" class="tag"></span>
+      <span id="adminTools"></span>
+      <p id="description" class="muted"></p>
+
+      <div class="info-grid">
+        <div><b>Date</b><span id="date">-</span></div>
+        <div><b>Start time</b><span id="time">-</span></div>
+        <div><b>Meeting place</b><span id="place">-</span></div>
+        <div><b>Distance</b><span id="distance">-</span></div>
+        <div><b>Est. ride time</b><span id="duration">-</span></div>
+        <div><b>Total climb</b><span id="climb">-</span></div>
+      </div>
+
+      <div id="joinArea"></div>
+    </div>
+
+    <div class="box">
+      <h2>Riders Joined (<span id="riderCount">0</span>)</h2>
+      <ul id="riderList" class="rider-list">
+        <li class="muted">Loading...</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/ride.js"></script>
+</body>
+</html>

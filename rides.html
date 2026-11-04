@@ -11,11 +11,33 @@
   <nav id="nav"></nav>
 
   <div class="container">
+
     <div class="box">
       <h2>Upcoming Rides</h2>
-      <p id="welcome"></p>
-      <p class="muted">Rides will show here soon.</p>
+      <div class="row">
+        <div>
+          <input type="text" id="search" placeholder="Search by ride name or place...">
+        </div>
+        <div style="max-width: 200px;">
+          <select id="levelFilter">
+            <option value="All">All levels</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+      </div>
     </div>
+
+    <div id="rideCards" class="cards"></div>
+
+    <div class="box" style="margin-top: 25px;">
+      <h2>My Joined Rides</h2>
+      <ul id="myRides" class="rider-list">
+        <li class="muted">Loading...</li>
+      </ul>
+    </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

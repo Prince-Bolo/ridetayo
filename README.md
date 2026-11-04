@@ -14,7 +14,7 @@ Organizers (admin) post group rides, and riders can join them.
 - [x] Database tables
 - [x] Register and login
 - [x] Admin and rider roles
-- [ ] Rides (add, edit, delete, join)
+- [x] Rides (add, edit, delete, join)
 - [ ] Map and bike route
 - [ ] Weather and sunset time
 - [ ] Ride poster upload
