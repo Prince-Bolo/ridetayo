@@ -15,6 +15,7 @@ async function start() {
     return;
   }
 
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
   loadRide();
 }
 
@@ -46,6 +47,12 @@ function showRideInfo() {
   const level = document.getElementById("level");
   level.textContent = ride.difficulty;
   level.className = "tag tag-" + ride.difficulty;
+
+  if (ride.poster_url) {
+    const poster = document.getElementById("poster");
+    poster.src = ride.poster_url;
+    poster.style.display = "block";
+  }
 
   document.getElementById("date").textContent = formatDate(ride.ride_date);
   document.getElementById("time").textContent = formatTime(ride.start_time);
@@ -308,7 +315,31 @@ async function joinRide() {
     return;
   }
 
+  sendJoinEmail();
   loadRiders();
+}
+
+// ---------- EMAIL (EmailJS) ----------
+async function sendJoinEmail() {
+  const note = document.getElementById("emailNote");
+  note.textContent = "Sending you an email...";
+
+  try {
+    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+      to_name: me.full_name,
+      to_email: me.email,
+      ride_title: ride.title,
+      ride_date: formatDate(ride.ride_date),
+      ride_time: formatTime(ride.start_time),
+      meeting_place: ride.meeting_place || "See the app",
+      distance: ride.distance_km ? ride.distance_km + " km" : "To be announced",
+      ride_link: window.location.href
+    });
+    note.textContent = "📧 Ride details were sent to " + me.email;
+  } catch (err) {
+    console.log("Email error:", err);
+    note.textContent = "You joined, but the email could not be sent.";
+  }
 }
 
 async function leaveRide() {
@@ -323,6 +354,7 @@ async function leaveRide() {
   if (error) {
     alert("Could not leave: " + error.message);
   }
+  document.getElementById("emailNote").textContent = "";
   loadRiders();
 }
 

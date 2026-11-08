@@ -63,7 +63,10 @@ function rideCard(ride) {
     joined = ride.ride_joins[0].count;
   }
 
-  const poster = '<div class="poster-empty">🚴</div>';
+  let poster = '<div class="poster-empty">🚴</div>';
+  if (ride.poster_url) {
+    poster = '<img src="' + smallImage(ride.poster_url) + '" alt="ride poster">';
+  }
 
   let distance = "Route not set yet";
   if (ride.distance_km) {

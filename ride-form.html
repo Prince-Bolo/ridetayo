@@ -75,7 +75,13 @@
         </div>
         <p id="routeInfo" class="muted">Set the start and end points, then click Get Route.</p>
 
+        <label>Ride Poster (optional)</label>
+        <input type="file" id="posterFile" accept="image/*">
+        <small id="posterStatus" class="muted"></small>
         <br>
+        <img id="posterPreview" alt="poster preview">
+
+        <br><br>
         <button type="submit" id="saveBtn">Save Ride</button>
         <a href="admin.html" class="btn btn-gray">Cancel</a>
         <p id="msg" class="msg"></p>

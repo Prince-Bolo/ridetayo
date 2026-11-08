@@ -16,6 +16,10 @@ let distanceKm = null;
 let durationMin = null;
 let climbM = null;
 
+// poster link from Cloudinary
+let posterUrl = null;
+let uploading = false;
+
 async function start() {
   me = await checkLogin(true);
   if (!me) return;
@@ -242,6 +246,50 @@ function showRouteInfo(withSuggestion) {
   document.getElementById("routeInfo").textContent = text;
 }
 
+// ---------- POSTER UPLOAD (Cloudinary) ----------
+document.getElementById("posterFile").addEventListener("change", async function () {
+  const file = this.files[0];
+  const status = document.getElementById("posterStatus");
+  const preview = document.getElementById("posterPreview");
+
+  if (!file) return;
+
+  if (file.size > 5 * 1024 * 1024) {
+    status.textContent = "Image is too big. Max is 5 MB.";
+    this.value = "";
+    return;
+  }
+
+  uploading = true;
+  status.textContent = "Uploading poster...";
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", CLOUDINARY_PRESET);
+
+  try {
+    const res = await fetch("https://api.cloudinary.com/v1_1/" + CLOUDINARY_CLOUD + "/image/upload", {
+      method: "POST",
+      body: formData
+    });
+    const data = await res.json();
+
+    if (data.secure_url) {
+      posterUrl = data.secure_url;
+      preview.src = posterUrl;
+      preview.style.display = "block";
+      status.textContent = "Poster uploaded!";
+    } else {
+      status.textContent = "Upload failed: " + (data.error ? data.error.message : "unknown error");
+    }
+  } catch (err) {
+    console.log("Upload error:", err);
+    status.textContent = "Upload failed. Check your internet.";
+  }
+
+  uploading = false;
+});
+
 // ---------- EDIT MODE ----------
 async function loadRideToEdit() {
   document.getElementById("formTitle").textContent = "Edit Ride";
@@ -283,6 +331,13 @@ async function loadRideToEdit() {
     map.setView([ride.start_lat, ride.start_lng], 14);
   }
 
+  if (ride.poster_url) {
+    posterUrl = ride.poster_url;
+    const preview = document.getElementById("posterPreview");
+    preview.src = posterUrl;
+    preview.style.display = "block";
+  }
+
   document.getElementById("modeEnd").checked = true;
 }
 
@@ -293,6 +348,11 @@ document.getElementById("rideForm").addEventListener("submit", async function (e
   const msg = document.getElementById("msg");
   const saveBtn = document.getElementById("saveBtn");
   const rideDate = document.getElementById("rideDate").value;
+
+  if (uploading) {
+    msg.textContent = "Please wait, the poster is still uploading.";
+    return;
+  }
 
   if (!editId && rideDate < todayText()) {
     msg.textContent = "The ride date cannot be in the past.";
@@ -320,7 +380,8 @@ document.getElementById("rideForm").addEventListener("submit", async function (e
     route_points: routePoints,
     distance_km: distanceKm,
     duration_min: durationMin,
-    climb_m: climbM
+    climb_m: climbM,
+    poster_url: posterUrl
   };
 
   saveBtn.disabled = true;

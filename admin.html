@@ -13,6 +13,34 @@
   <div class="container">
     <h1>Dashboard</h1>
 
+    <div class="stats">
+      <div class="stat">
+        <div class="num" id="statRides">0</div>
+        <div class="label">Total rides</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statUpcoming">0</div>
+        <div class="label">Upcoming rides</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statRiders">0</div>
+        <div class="label">Registered riders</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statJoins">0</div>
+        <div class="label">Total ride joins</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statKm">0</div>
+        <div class="label">Total km planned</div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>Most Joined Ride</h2>
+      <p id="popular" class="muted">-</p>
+    </div>
+
     <div class="box">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2>All Rides</h2>
@@ -32,6 +60,25 @@
           </thead>
           <tbody id="rideTable">
             <tr><td colspan="6" class="muted">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>Users</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Rides Joined</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody id="userTable">
+            <tr><td colspan="4" class="muted">Loading...</td></tr>
           </tbody>
         </table>
       </div>

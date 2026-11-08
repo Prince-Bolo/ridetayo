@@ -100,6 +100,15 @@ function todayText() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Manila" });
 }
 
+// asks Cloudinary for a smaller cropped copy of the poster
+// so the rides page loads faster
+function smallImage(url) {
+  if (url.includes("res.cloudinary.com")) {
+    return url.replace("/upload/", "/upload/w_600,h_340,c_fill/");
+  }
+  return url;
+}
+
 // gets ?id=5 from the link
 function getIdFromLink() {
   const params = new URLSearchParams(window.location.search);
