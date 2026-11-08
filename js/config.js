@@ -6,7 +6,7 @@ const SUPABASE_URL = "https://dxwukkfimgdddrmxniuz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_JbhiUgBYw1ef_qWcBcg-kQ_gakw_r2A";
 
 // OpenRouteService (bike route, distance, climb)
-const ORS_KEY = "YOUR-OPENROUTESERVICE-KEY";
+const ORS_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImZmNDQ2NTdjNjc3YTQwMTNhMWUxYmYwMWU3MGRiMWY0IiwiaCI6Im11cm11cjY0In0=";
 
 // Cloudinary (ride poster upload)
 const CLOUDINARY_CLOUD = "YOUR-CLOUD-NAME";

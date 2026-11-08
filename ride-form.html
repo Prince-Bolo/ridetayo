@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RideTayo - Ride Form</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -47,8 +48,32 @@
           </div>
         </div>
 
-        <label>Meeting Place</label>
-        <input type="text" id="meetingPlace" placeholder="ex. Iligan City Hall">
+        <label>Meeting Place (search it or click the map)</label>
+        <div class="search-row">
+          <input type="text" id="meetingPlace" placeholder="ex. Iligan City Hall">
+          <button type="button" class="btn-green" onclick="searchPlace()">Search</button>
+        </div>
+        <small id="searchStatus" class="muted"></small>
+
+        <label>Route</label>
+        <div class="map-tools">
+          <span>Click the map to set:</span>
+          <label class="inline-label">
+            <input type="radio" name="pointMode" id="modeStart" value="start" checked> Start
+          </label>
+          <label class="inline-label">
+            <input type="radio" name="pointMode" id="modeEnd" value="end"> End / Turnaround
+          </label>
+          <label class="inline-label">
+            <input type="checkbox" id="isLoop"> Loop ride (go back to start)
+          </label>
+        </div>
+        <div id="map"></div>
+        <div class="map-tools">
+          <button type="button" class="btn-green" onclick="getRoute()">Get Route</button>
+          <button type="button" class="btn-gray" onclick="clearPoints()">Clear Points</button>
+        </div>
+        <p id="routeInfo" class="muted">Set the start and end points, then click Get Route.</p>
 
         <br>
         <button type="submit" id="saveBtn">Save Ride</button>
@@ -58,6 +83,7 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
   <script src="js/common.js"></script>

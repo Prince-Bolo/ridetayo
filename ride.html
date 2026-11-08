@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RideTayo - Ride Details</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,6 +32,23 @@
     </div>
 
     <div class="box">
+      <h2>Route Map</h2>
+      <p id="mapNote" class="muted"></p>
+      <div id="map"></div>
+    </div>
+
+    <div class="row">
+      <div class="box">
+        <h2>Weather on Ride Day</h2>
+        <div id="weather"><p class="muted">Loading...</p></div>
+      </div>
+      <div class="box">
+        <h2>Daylight</h2>
+        <div id="sunset"><p class="muted">Loading...</p></div>
+      </div>
+    </div>
+
+    <div class="box">
       <h2>Riders Joined (<span id="riderCount">0</span>)</h2>
       <ul id="riderList" class="rider-list">
         <li class="muted">Loading...</li>
@@ -39,6 +57,7 @@
 
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
   <script src="js/common.js"></script>
